@@ -9,8 +9,8 @@ class User_model extends CI_Model {
    * @param $username  The username
    * @param $password The user's password
    */
-  public function authenticate($username, $password){
-      $query = $this->db->get_where('users', array('username' => $username, 'password' => $password));
+  public function authenticate($user, $pass){
+      $query = $this->db->get_where('usuarios', array('cedula' => $user, 'contra' => $pass));
       if ($query->result()) {
         return $query->result()[0];
       } else {

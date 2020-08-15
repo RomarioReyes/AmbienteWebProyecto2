@@ -16,13 +16,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 <div class="container">
     <div class="msg">
-    <?php echo $this->session->flashdata('error');?>
+    
     </div>
     <h1>User Login</h1>
-    <form action="/practica/codeigniter31/user/authenticate" method="POST" class="form-inline" role="form">
+    <form action="/ambienteWeb/workshop8/index.php/user/authenticate" method="POST" class="form-inline" role="form">
       <div class="form-group">
         <label class="sr-only" for="">Username</label>
-        <input type="text" class="form-control" id="" name="username" placeholder="Your username">
+        <input type="text" class="form-control" id="" name="username" placeholder="Your Id">
       </div>
       <div class="form-group">
         <label class="sr-only" for="">Password</label>
