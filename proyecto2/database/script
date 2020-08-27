@@ -1,0 +1,65 @@
+AmbienteWebP1
+CREATE TABLE usuarios(
+id serial primary key,
+nombre text not null,
+Apellidos text not null,
+numero integer not null unique,
+correo text not null unique,
+direccion text not null,
+cedula text not null unique,
+contra text not null
+);
+
+CREATE TABLE categorias(
+id serial primary key,
+nombre text not null unique,
+activo boolean default true
+);
+
+
+CREATE TABLE productos(
+id serial primary key,
+nombre text not null unique,
+descripcion text not null,
+imagen text not null,
+id_categoria integer not null,
+cantidad integer not null,
+precio integer not null,
+activo boolean default true,
+CONSTRAINT fk_categoria FOREIGN KEY (id_categoria)
+        REFERENCES categorias(id)
+);
+
+
+
+CREATE TABLE carrito(
+id serial primary key,
+id_usuario integer not null,
+id_producto integer not null,
+fecha text not null,	
+activo boolean default true,
+CONSTRAINT fk_usuario FOREIGN KEY (id_usuario)
+        REFERENCES usuarios(id),
+CONSTRAINT fk_producto FOREIGN KEY (id_producto)
+        REFERENCES productos(id)	
+);
+CREATE TABLE Compras(
+id serial primary key,
+id_usuario integer not null,
+id_producto integer not null,
+fecha text not null,
+orden text not null,
+CONSTRAINT fk_usuario FOREIGN KEY (id_usuario)
+        REFERENCES usuarios(id),
+CONSTRAINT fk_producto FOREIGN KEY (id_producto)
+        REFERENCES productos(id)
+);
+
+/***inner joins***/
+select p.id, p.nombre,p.imagen, p.id_categoria, p.cantidad, p.precio, p.activo
+from productos p inner join carrito c on p.id = c.id_producto 
+inner join usuarios u on u.id = 7 where p.activo='true'
+
+
+select*from compras
+select*from productos where id_categoria=8 count=1

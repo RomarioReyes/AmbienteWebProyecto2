@@ -14,8 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('inicio.home');
 });
-Route::get('bienvenido', function () {
-    return "Hellouda xd";
-});
+
+Route::get('login','UsuarioController@login');
+
+Route::get('registro','UsuarioController@registro');
+Route::post('registro','UsuarioController@crear')->name('usuario.crear');
