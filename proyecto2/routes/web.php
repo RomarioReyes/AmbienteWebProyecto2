@@ -41,4 +41,4 @@ Route::put('editarProducto/{id}','ProductoController@EditProducto')->name('produ
 Route::delete('eliminarProducto/{id}','ProductoController@ElimarProducto')->name('producto.eliminar');
 /**productos clientes */
 Route::get('productoCliente/{id}','ProductoController@ProductosCliente')->name('producto.cliente');
-Route::get('vermas/{id}','ProductoConroller@VerMas')->name('vermas');
+Route::get('vermas/{id}','ProductoController@VerMas')->name('vermas');
