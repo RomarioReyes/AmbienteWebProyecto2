@@ -19,8 +19,9 @@ class CreateComprasTable extends Migration
             $table->integer('orden');
             $table->foreignId('id_usuario');
             $table->foreign('id_usuario')->references('usuarios')->references('id')->on('usuarios');
-            $table->foreignId('id_producto');
-            $table->foreign('id_producto')->references('productos')->references('id')->on('productos');
+            $table->integer('precio');
+            $table->string('producto');
+            $table->integer('codigo');
         });
     }
 
@@ -34,3 +35,4 @@ class CreateComprasTable extends Migration
         Schema::dropIfExists('compras');
     }
 }
+

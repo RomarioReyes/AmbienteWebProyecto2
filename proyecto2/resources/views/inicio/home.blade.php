@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Home
+                    <a class="nav-link" href="{{route ('inicio')}}">Home
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -34,8 +34,11 @@
                                             <li class="dropdown" id="accountmenu">
                                                 <a class="dropdown-toggle text-muted" data-toggle="dropdown" href="#">Categorias</a>
                                                 <ul class="dropdown-menu">
+                                                    @foreach ($categorias as $item)
+                                                    <li><a href="" >{{$item->nombre}}</a></li>    
+                                                    @endforeach
                                                     
-                                                    <a href=""></a>
+                                                    
                                                 </ul>
                                             </li>
                                         </ul>
@@ -46,10 +49,10 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="php/usu-registro.php">Registrarse <span class="bi bi-chevron-compact-up"></span></a>
+                        <a class="nav-link" href="{{route ('registro')}}">Registrarse <span class="bi bi-chevron-compact-up"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="php/login.php">loguearse <span class="bi bi-chevron-compact-up"></span></a>
+                        <a class="nav-link" href="{{route ('login')}}">loguearse <span class="bi bi-chevron-compact-up"></span></a>
                     </li>
 
 
@@ -72,13 +75,22 @@
 
                 <div class="card mt-4">
 
+                    @foreach ($productos as $item)
+                    <img class="card-img-top img-fluid" src="{{$item->imagen}}"  >
+                    <div class="card-body">
+                    <h3 class="card-title\">  {{$item->nombre}} </h3>
+                    <h4>{{$item->precio}}</h4>
+                    <button class="btn btn-primary"> ver mas </button>
+                    </div>
+                    @endforeach
                     
+
                 </div>
                 <!-- /.card -->
 
 
                 <!-- /.card -->
-
+                {{$productos->links()}}
             </div>
             <!-- /.col-lg-9 -->
 

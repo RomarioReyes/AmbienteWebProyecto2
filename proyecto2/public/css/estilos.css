@@ -20,3 +20,13 @@ a:link{
   width: 100%;
 
 } */
+section {
+ 
+  /* igual al largo del footer */
+  margin-bottom: -150px;
+}
+
+footer {
+  height: 150px;
+  background-color: #08B;
+}

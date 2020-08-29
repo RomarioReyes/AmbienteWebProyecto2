@@ -8,7 +8,7 @@ class Compra extends Model
 {
     
     protected $fillable = [
-        'fecha', 'orden', 'id_usuario', 'id_producto',
+        'fecha', 'orden', 'id_usuario', 'precio','producto','codigo',
     ];
     public $timestamps = false;
     const UPDATED_AT = null;

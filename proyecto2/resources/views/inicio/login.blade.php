@@ -11,16 +11,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="../index.php">Home
+                <a class="nav-link" href="{{route ('inicio')}}">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="usu-registro.php">Registrarse <span class="bi bi-chevron-compact-up"></span></a>
+                    <a class="nav-link" href="{{route ('registro')}}">Registrarse <span class="bi bi-chevron-compact-up"></span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="login.php">loguearse <span class="bi bi-chevron-compact-up"></span></a>
+                    <a class="nav-link" href="{{route ('login')}}">loguearse <span class="bi bi-chevron-compact-up"></span></a>
                 </li>
 
 
@@ -45,15 +45,15 @@
     <div class="msg">
         
     </div>
-    <form action="log.php" method="POST" class="form-inline" role="form">
+    <form action="{{ route('usuario.logear') }}" method="POST" class="form-inline" role="form">
         @csrf
         <div class="form-group">
             <label class="sr-only" for="">Cedula</label>
-            <input type="text" class="form-control" id="" required name="username" placeholder="cedula(solo numeros)">
+            <input type="text" class="form-control" id="" required name="cedula" placeholder="cedula(solo numeros)">
         </div>
         <div class="form-group">
             <label class="sr-only" for="">Password</label>
-            <input type="password" class="form-control" id="" required name="password" placeholder="Contraseña">
+            <input type="password" class="form-control" id="" required name="contra" placeholder="Contraseña">
         </div>
 
         <button type="submit" class="btn btn-primary">Login</button>
