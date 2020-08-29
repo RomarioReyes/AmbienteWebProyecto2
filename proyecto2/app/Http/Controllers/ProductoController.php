@@ -223,8 +223,9 @@ class ProductoController extends Controller
                 $productos = App\Producto::paginate(4);
                 return view('producto.productoAdmin', compact('productos'));
             } else {
+                $categorias = App\Categoria::all();
                 $producto = DB::table('productos')->where('id', $request->id);
-                return view('producto.verMas',compact('producto'));
+                return view('producto.verMas',compact('producto','categorias'));
             }
         } else {
             $categorias = App\Categoria::all();
